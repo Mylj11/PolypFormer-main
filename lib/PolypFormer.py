@@ -8,9 +8,6 @@ import os
 
 import functools
 from cc_attention import CrissCrossAttention
-from inplace_abn import InPlaceABN, InPlaceABNSync
-BatchNorm2d = functools.partial(InPlaceABNSync, activation='identity')
-
 
 class BasicConv2d(nn.Module):
     def __init__(self, in_planes, out_planes, kernel_size, stride=1, padding=0, dilation=1):
@@ -90,6 +87,7 @@ class RCCAModule(nn.Module):
             nn.Dropout2d(0.1),
             nn.Conv2d(out_channels, out_channels, kernel_size=1, stride=1, padding=0, bias=True)
         )
+
     def forward(self, x, recurrence=2):
         output = self.conva(x)
         # print("%%%%%%%%%%%%%%%%%%%")
@@ -108,8 +106,8 @@ class PolypFormer(nn.Module):
         super(PolypFormer, self).__init__()
         #--------------------------------------#
         #   获取两个特征层
-        #   浅层特征    [32,64,64]
-        #   深层特征    [256,64,64]
+        #   浅层特征    [64,88,88]
+        #   深层特征    [128,44,44]、 [320,22,22]、 [512,11,11]
         # --------------------------------------#
         self.backbone = Pvt_v2_b2()
         path = './pretrained_pth/pvt_v2_b2.pth'
@@ -118,11 +116,6 @@ class PolypFormer(nn.Module):
         state_dict = {k: v for k, v in save_model.items() if k in model_dict.keys()}
         model_dict.update(state_dict)
         self.backbone.load_state_dict(model_dict)
-
-        self.Translayer2_0 = BasicConv2d(64, channel, 1)
-        self.Translayer2_1 = BasicConv2d(128, channel, 1)
-        self.Translayer3_1 = BasicConv2d(320, channel, 1)
-        self.Translayer4_1 = BasicConv2d(512, channel, 1)
 
         self.RFB_4 = RFB_modified(512, channel)
         self.RFB_3 = RFB_modified(320, channel)
