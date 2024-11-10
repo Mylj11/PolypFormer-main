@@ -11,7 +11,7 @@ Authors: Jin Liu, Dechun Zhao, Hehua Zhang, Keji Zhang
 
 - [2024/11/9] Release training/testing code.
 
-- [2020/11/2] Create repository.
+- [2024/11/2] Create repository.
 
 ## 2. Overview
 
