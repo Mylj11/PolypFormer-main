@@ -65,10 +65,23 @@ The training and testing experiments are conducted using [PyTorch](https://githu
 
   `pretrained_pth/pvt_v2_b2.pth`
 
-- downloading pretrained weights and move it into `model_pth/`,which can be found in this [download link(提取码：a78y)](https://pan.baidu.com/s/19eb29-nh77Aqjxm5DIaBVg?pwd=a78y )
+- downloading pretrained weights and move it into `./model_pth/PolypFormer`,which can be found in this [download link(提取码：a78y)](https://pan.baidu.com/s/19eb29-nh77Aqjxm5DIaBVg?pwd=a78y )
 
- 
+ 3.Training Configuration:
 
+```python
+python train.py
+```
 
+4.Testing Configuration:
 
+```python
+python test.py
+```
+
+5.For metrics:
+
+```PYTHON
+python eval.py
+```
 
