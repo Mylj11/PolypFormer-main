@@ -7,7 +7,7 @@ Authors: Jin Liu, Dechun Zhao, Hehua Zhang, Keji Zhang
 - This repository provides code for "_**A Layer-wise Feature Fusion Transformer for Enhanced Polyp Segmentation (PolypFormer)**_". 
 
 
-### 1.1. :fire: NEWS :fire:S
+### 1.1. :fire: NEWS :fire:
 
 - [2024/11/9] Release training/testing code.
 
@@ -22,24 +22,26 @@ Colonoscopy is the gold standard for early screening and prevention of colorecta
 <p align="center">
     <img src="imgs/framework.png"/> <br />
     <em> 
-    Figure 1: Overview of the proposed CFANet.
+    Figure 1: Overview of the proposed PolypFormer.
     </em>
 </p>
+
 
 ### 2.3. Qualitative Results
 
 <p align="center">
-    <img src="imgs/qualitative_results.png"/> <br />
+    <img src="imgs/qualitative_result_1.png"/> <br />
     <em> 
     Figure 2: Qualitative Results.
     </em>
 </p>
 <p align="center">
-    <img src="imgs/qualitative_results.png"/> <br />
+    <img src="imgs/qualitative_result_2.png"/> <br />
     <em> 
     Figure 3: Qualitative Results.
     </em>
 </p>
+
 
 
 ## 3. Proposed Baseline
@@ -53,16 +55,19 @@ The training and testing experiments are conducted using [PyTorch](https://githu
    - Creating a virtual environment in terminal: .`conda create -n PolypFormer python=3.9`
    - Installing necessary packages: `PyTorch 1.13`
 
-2.Downloading necessary data:
+   2.Downloading necessary data:
 
 - downloading testing dataset and move it into , which can be found in this [download link (Google Drive)](https://drive.google.com/file/d/1lODorfB33jbd-im-qrtUgWnZXxB94F55/view?usp=sharing). It contains five sub-datsets: CVC-300 (60 test samples), CVC-ClinicDB (62 test samples), CVC-ColonDB (380 test samples), ETIS-LaribPolypDB (196 test samples), Kvasir (100 test samples).`./data/TestDataset/`
 
 - downloading training dataset and move it into , which can be found in this [download link  (Google Drive)](https://drive.google.com/file/d/1o8OfBvYE6K-EpDyvzsmMPndnUMwb540R/view?usp=sharing). It contains two sub-datasets: Kvasir-SEG (900 train samples) and CVC-ClinicDB (550 train samples).`./data/TrainDataset/`
 
-- download the weight of pvtv2 form [[PVTv2(Google Drive) ]](https://github.com/whai362/PVT/releases/tag/v2) and move it into `pretrained_pth/pvt_v2_b2.pth`
+- download the weight of pvtv2 form [[PVTv2(Google Drive) ]](https://github.com/whai362/PVT/releases/tag/v2) and move it into
 
-- downloading pretrained weights and move it into `model_pth/`,which can be found in this[download link(baidu)](https://pan.baidu.com)
+  `pretrained_pth/pvt_v2_b2.pth`
 
+- downloading pretrained weights and move it into `model_pth/`,which can be found in this [download link(提取码：a78y)](https://pan.baidu.com/s/19eb29-nh77Aqjxm5DIaBVg?pwd=a78y )
+
+ 
 
 
 
